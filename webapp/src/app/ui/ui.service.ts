@@ -6,9 +6,9 @@ import swal, { SweetAlertOptions } from 'sweetalert2';
 @Injectable()
 export class UIService {
 
-  private sidebarActive: boolean;
-  private sidebarOpen: boolean;
-  private sidebarNav: any;
+  public sidebarActive: boolean;
+  public sidebarOpen: boolean;
+  public sidebarNav: any;
 
   constructor(
     private toastyService: ToastyService,

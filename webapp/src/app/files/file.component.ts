@@ -16,7 +16,7 @@ export class FileComponent implements OnDestroy {
 
   private modalRef;
   private files;
-  private uploadContainer: Container = new Container();
+  public uploadContainer: Container = new Container();
   private subscriptions: Subscription[] = new Array<Subscription>();
   public uploadUrl: string = null;
   public uploader: FileUploader = new FileUploader({});
@@ -24,8 +24,8 @@ export class FileComponent implements OnDestroy {
 
   constructor(
     private modal: NgbModal,
-    private uiService: UIService,
-    private fileService: FileService,
+    public uiService: UIService,
+    public fileService: FileService,
   ) {
     this.fileService.getFiles('test').subscribe((files: any) => (this.files = files));
   }

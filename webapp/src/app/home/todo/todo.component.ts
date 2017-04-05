@@ -18,8 +18,8 @@ export class TodoComponent implements OnDestroy {
 
   constructor(
     private modal: NgbModal,
-    private uiService: UIService,
-    private todoService: TodoService,
+    public uiService: UIService,
+    public todoService: TodoService,
   ) { }
 
   ngOnDestroy() {

@@ -4,7 +4,7 @@
   "description": "Starter kit for the fireloop.io platform",
   "scripts": {
     "preinstall": "npm install -g @angular/cli @angular/compiler-cli",
-    "install": "cd fireloop/ && npm install && cd ../webapp && npm install && npm install @angular/cli && cd ..",
+    "install": "cd fireloop/ && npm install && cd ../webapp && npm install && npm install @angular/cli @angular/compiler-cli && cd ..",
     "postinstall": "npm run build",
     "build": "cd webapp/ && npm run build",
     "start": "npm run serve",

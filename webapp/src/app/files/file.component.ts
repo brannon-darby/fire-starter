@@ -68,7 +68,7 @@ export class FileComponent implements OnDestroy {
       `,
       confirmButtonText: 'Yes, Delete'
     };
-    this.uiService.alertError(question, () => this.handleAction({ type: 'delete', payload: item.container }), () => { });
+    this.uiService.alertError(question, () => this.handleAction({ type: 'delete', payload: item }), () => { });
   }
 
   deleteFile(container: string, file: any): void {
@@ -125,7 +125,8 @@ export class FileComponent implements OnDestroy {
         break;
       case 'getFiles':
         this.subscriptions.push(this.fileService.containerApi
-          .getFiles(event.payload).subscribe((files: any) => {
+          .getFiles(event.payload).subscribe(
+          (files: any) => {
             return files;
           }, (err) => {
             this.uiService.toastError('Get Files Failed', err.message || err.error.message);
@@ -133,8 +134,9 @@ export class FileComponent implements OnDestroy {
         ));
         break;
       case 'delete':
-        this.subscriptions.push(this.fileService.containerApi
-          .destroyContainer(event.payload.name).subscribe(() => {
+        this.subscriptions.push(this.fileService
+          .deleteContainer(event.payload.container).subscribe(
+          (container: any) => {
             this.fileService.refresh();
             this.uiService.toastSuccess('Container Deleted', 'The container was deleted successfully.');
           },

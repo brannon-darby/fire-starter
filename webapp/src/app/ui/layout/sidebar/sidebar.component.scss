@@ -2,7 +2,7 @@
 @import '~bootstrap/scss/mixins';
 
 .sidebar-wrapper {
-  background: transparent radial-gradient(circle farthest-side at right bottom, #ff9d4d 5%, #eb5d2d 25%, #dd5122 80%, #a32900 98%) repeat scroll 0 0;
+  background: transparent radial-gradient(circle farthest-side at right bottom, $brand-primary 5%, $brand-warning 25%, darken($brand-warning, 5%) 80%, $brand-danger 98%) repeat scroll 0 0;
   box-shadow: 2px 0 3px rgba(0, 0, 0, 0.3);
   position  : fixed;
   width     : 64px;

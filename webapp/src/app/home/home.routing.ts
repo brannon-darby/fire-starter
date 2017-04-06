@@ -16,10 +16,11 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'auth', component: AuthComponent },
+      { path: 'files', component: FileComponent },
       { path: 'todos', component: TodoComponent },
       { path: 'notes', component: NoteComponent },
       { path: 'notifications', component: NotificationsComponent },
-      { path: 'files', component: FileComponent },
+
     ]
   }
 ];

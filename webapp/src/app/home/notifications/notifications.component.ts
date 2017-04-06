@@ -10,20 +10,24 @@ import { UIService } from '../../ui/ui.service';
         <div class="col-12 mb-3">
           <h4>Toasty</h4>
           <hr>
-          <span *ngFor="let button of buttons">
-            <button *ngIf="button.alertType === 'toasty'" class="btn btn-{{button.className}} mx-1" (click)="onClickService(button)">
-            {{button.label}}
-            </button>
-          </span>
+          <div class="row">
+            <div *ngFor="let button of toastyButtons" class="col-12 col-md-6 col-lg-4">
+              <button type="button" class="btn btn-block btn-{{button.className}} mb-1" (click)="onClickService(button)">
+                {{button.label}}
+              </button>
+            </div>
+          </div>
         </div>
         <div class="col-12">
           <h4>SweetAlert2</h4>
           <hr>
-          <span *ngFor="let button of buttons">
-            <button *ngIf="button.alertType === 'sal'" class="btn btn-{{button.className}} mx-1" (click)="onClickService(button)">
-            {{button.label}}
-            </button>
-          </span>
+          <div class="row">
+            <div *ngFor="let button of salButtons" class="col-12 col-md-6 col-lg-4">
+              <button type="button" class="btn btn-block btn-{{button.className}} mb-1" (click)="onClickService(button)">
+                {{button.label}}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </app-card>
@@ -32,12 +36,15 @@ import { UIService } from '../../ui/ui.service';
 })
 export class NotificationsComponent {
 
-  public buttons = [
+  public toastyButtons = [
     { alertType: 'toasty', label: 'Success', type: 'success', className: 'success' },
     { alertType: 'toasty', label: 'Warning', type: 'warning', className: 'warning' },
     { alertType: 'toasty', label: 'Wait', type: 'wait', className: 'primary' },
     { alertType: 'toasty', label: 'Info', type: 'info', className: 'info' },
     { alertType: 'toasty', label: 'Error', type: 'error', className: 'danger' },
+  ]
+
+  public salButtons = [
     { alertType: 'sal', label: 'Success', type: 'success', className: 'success' },
     { alertType: 'sal', label: 'Warning', type: 'warning', className: 'warning' },
     { alertType: 'sal', label: 'Question', type: 'question', className: 'primary' },

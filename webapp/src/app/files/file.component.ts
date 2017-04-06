@@ -58,6 +58,17 @@ export class FileComponent implements OnDestroy {
     });
   }
 
+  uploadAll(): void {
+    let items = this.uploader.getNotUploadedItems().filter((item: any) => !item.isUploading);
+    if (!items.length) {
+      return;
+    }
+    items.forEach(
+      (item: any) => {
+        this.upload(item);
+      });
+  }
+
   delete(item: any): void {
     const question = {
       title: 'Delete Container',
@@ -121,7 +132,10 @@ export class FileComponent implements OnDestroy {
         break;
       case 'upload':
         this.uploader.uploadItem(event.payload);
-        this.fileService.refresh();
+        setTimeout(
+          () => {
+            this.fileService.refresh();
+          }, 500);
         break;
       case 'getFiles':
         this.subscriptions.push(this.fileService.containerApi

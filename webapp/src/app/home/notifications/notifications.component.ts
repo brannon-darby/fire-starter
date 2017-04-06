@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { UIService } from '../../../ui/ui.service';
+import { UIService } from '../../ui/ui.service';
 
 @Component({
   selector: 'app-notifications',
@@ -60,6 +60,8 @@ export class NotificationsComponent {
           text: `You clicked the ${button.type} button`,
           confirmButtonClass: `btn btn-lg btn-${button.className}`
         };
+      default:
+        return console.log('Unknown alertType', button.alertType);
     }
 
   }
@@ -70,7 +72,8 @@ export class NotificationsComponent {
         return this.uiService.toast(NotificationsComponent.getPayload(button));
       case 'sal':
         return this.uiService.alert(NotificationsComponent.getPayload(button));
-
+      default:
+        return console.log('Unknown alertType', button.alertType);
     }
   }
 

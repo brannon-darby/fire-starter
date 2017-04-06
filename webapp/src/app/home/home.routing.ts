@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from '../auth/auth.component';
 import { TodoComponent } from './todo/todo.component';
-import { NotificationsComponent } from './notifications/notifications/notifications.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { NoteComponent } from './note/note.component';
 import { FileComponent } from '../files/file.component';
 
